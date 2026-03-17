@@ -1,0 +1,159 @@
+{
+  "info": {
+    "name": "2 - Course Tests",
+    "_postman_id": "course-tests-collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "No Course Name",
+      "request": {
+        "method":"POST",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{
+          "mode":"raw",
+          "raw":"{\n\"instructor\":1,\n\"maxSize\":10\n\"room\":\"Central Command\"\n}"
+        },
+        "url":"{{base_url}}/api/courses"
+      }
+    },
+	{
+      "name": "Blank Course Name",
+      "request": {
+        "method":"POST",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{
+          "mode":"raw",
+          "raw":"{\n\"name\":\"\",\n\"instructor\":1,\n\"maxSize\":10,\n\"room\":\"Central Command\"\n}"
+        },
+        "url":"{{base_url}}/api/courses"
+      }
+    },
+	{
+      "name": "Course Name Too Large",
+      "request": {
+        "method":"POST",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{
+          "mode":"raw",
+          "raw":"{\n\"name\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n\"instructor\":1,\n\"maxSize\":10,\n\"room\":\"Central Command\"\n}"
+        },
+        "url":"{{base_url}}/api/courses"
+      }
+    },
+    {
+      "name": "Instructor Negative",
+      "request": {
+        "method":"POST",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{
+          "mode":"raw",
+          "raw":"{\n\"name\":\"Battle Alchemy\",\n\"instructor\":-1,\n\"maxSize\":10,\n\"room\":\"Central Command\"\n}"
+        },
+        "url":"{{base_url}}/api/courses"
+      }
+    },
+	{
+      "name": "Max Size Too Low",
+      "request": {
+        "method":"POST",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{
+          "mode":"raw",
+          "raw":"{\n\"name\":\"Battle Alchemy\",\n\"instructor\":1,\n\"maxSize\":0,\n\"room\":\"Central Command\"\n}"
+        },
+        "url":"{{base_url}}/api/courses"
+      }
+    },
+	{
+      "name": "No Room Name",
+      "request": {
+        "method":"POST",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{
+          "mode":"raw",
+          "raw":"{\n\"name\":\"Battle Alchemy\",\n\"instructor\":1,\n\"maxSize\":10,\n}"
+        },
+        "url":"{{base_url}}/api/courses"
+      }
+    },
+	{
+      "name": "Blank Room Name",
+      "request": {
+        "method":"POST",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{
+          "mode":"raw",
+          "raw":"{\n\"name\":\"Battle Alchemy\",\n\"instructor\":1,\n\"maxSize\":10,\n\"room\":\"\"\n}"
+        },
+        "url":"{{base_url}}/api/courses"
+      }
+    },
+	{
+      "name": "Room Name Too Large",
+      "request": {
+        "method":"POST",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{
+          "mode":"raw",
+          "raw":"{\n\"name\":\"Battle Alchemy\",\n\"instructor\":1,\n\"maxSize\":10,\n\"room\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"\n}"
+        },
+        "url":"{{base_url}}/api/courses"
+      }
+    },
+    {
+      "name": "Valid Course 1",
+      "request": {
+        "method":"POST",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{
+          "mode":"raw",
+          "raw":"{\n\"name\":\"Battle Alchemy\",\n\"instructor\":1,\n\"maxSize\":10,\n\"room\":\"Central Command\"\n}"
+        },
+        "url":"{{base_url}}/api/courses"
+      }
+    },
+    {
+      "name": "Valid Course 2",
+      "request": {
+        "method":"POST",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{
+          "mode":"raw",
+          "raw":"{\n\"name\":\"Construction Alchemy\",\n\"instructor\":2,\n\"maxSize\":10,\n\"room\":\"Central Command\"\n}"
+        },
+        "url":"{{base_url}}/api/courses"
+      }
+    },
+    {
+      "name": "Valid Course 3",
+      "request": {
+        "method":"POST",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{
+          "mode":"raw",
+          "raw":"{\n\"name\":\"Fire Alchemy\",\n\"instructor\":3,\n\"maxSize\":1,\n\"room\":\"Central Command\"\n}"
+        },
+        "url":"{{base_url}}/api/courses"
+      }
+    },
+	{
+      "name": "(DO NOT USE- PROGRAM DOES NOT ACCOUNT FOR THIS) Duplicate Course",
+      "request": {
+        "method":"POST",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{
+          "mode":"raw",
+          "raw":"{\n\"name\":\"Battle Alchemy\",\n\"instructor\":1,\n\"maxSize\":10,\n\"room\":\"Central Command\"\n}"
+        },
+        "url":"{{base_url}}/api/courses"
+      }
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "info": {
+    "name": "3 - API Functionality Tests",
+    "_postman_id": "api-tests-collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "Get Student",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/api/students/3"
+      }
+    },
+    {
+      "name": "Update Student",
+      "request": {
+        "method":"PUT",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{
+          "mode":"raw",
+          "raw":"{\n\"id\":3,\n\"name\":\"Solf J Kimblee\",\n\"major\":\"Alchemy\",\n\"gpa\":4.0\n}"
+        },
+        "url":"{{base_url}}/api/students"
+      }
+    },
+    {
+      "name": "Get All Students",
+      "request": {
+        "method":"GET",
+        "url":"{{base_url}}/api/students"
+      }
+    },
+    {
+      "name": "Delete Student",
+      "request": {
+        "method":"DELETE",
+        "url":"{{base_url}}/api/students/3"
+      }
+    },
+    {
+      "name": "Add Student To Course",
+      "request": {
+        "method":"PUT",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{"mode":"raw","raw":"1"},
+        "url":"{{base_url}}/api/courses/addStudent/3"
+      }
+    },
+	{
+      "name": "Add Student To Invalid Course",
+      "request": {
+        "method":"PUT",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{"mode":"raw","raw":"1"},
+        "url":"{{base_url}}/api/courses/addStudent/4"
+      }
+    },
+	{
+      "name": "Add Invalid Student To Course",
+      "request": {
+        "method":"PUT",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{"mode":"raw","raw":"3"},
+        "url":"{{base_url}}/api/courses/addStudent/1"
+      }
+    },
+	{
+      "name": "Add Student To Full Course",
+      "request": {
+        "method":"PUT",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{"mode":"raw","raw":"2"},
+        "url":"{{base_url}}/api/courses/addStudent/3"
+      }
+    },
+	{
+      "name": "(DO NOT USE- PROGRAM DOES NOT ACCOUNT FOR THIS) Add Duplicate Student To Course",
+      "request": {
+        "method":"PUT",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{"mode":"raw","raw":"1"},
+        "url":"{{base_url}}/api/courses/addStudent/3"
+      }
+    },
+	{
+      "name": "Update Course",
+      "request": {
+        "method":"PUT",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{
+          "mode":"raw",
+          "raw":"{\n\"name\":\"Human Alchemy\",\n\"instructor\":3,\n\"maxSize\":1,\n\"room\":\"Central Command\"\n}"
+        },
+        "url":"{{base_url}}/api/courses/3"
+      }
+    },
+    {
+      "name": "Get Courses",
+      "request": {
+        "method":"GET",
+        "url":"{{base_url}}/api/courses"
+      }
+    },
+	{
+      "name": "Delete Course",
+      "request": {
+        "method":"DELETE",
+        "url":"{{base_url}}/api/courses/3"
+      }
+    }
+  ]
+}

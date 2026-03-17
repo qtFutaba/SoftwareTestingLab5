@@ -1,0 +1,163 @@
+{
+  "info": {
+    "name": "1 - Student Tests",
+    "_postman_id": "student-tests-collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "No Name",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\"major\":\"Alchemy\",\n\"gpa\":4.0\n}"
+        },
+        "url": "{{base_url}}/api/students"
+      }
+    },
+    {
+      "name": "Blank Name",
+      "request": {
+        "method": "POST",
+        "header": [{"key":"Content-Type","value":"application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\"name\":\"\",\n\"major\":\"Alchemy\",\n\"gpa\":4.0\n}"
+        },
+        "url": "{{base_url}}/api/students"
+      }
+    },
+	{
+      "name": "Name Too Large",
+      "request": {
+        "method": "POST",
+        "header": [{"key":"Content-Type","value":"application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw":"{\n\"name\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n\"major\":\"Alchemy\",\n\"gpa\":4.0\n}"
+        },
+        "url": "{{base_url}}/api/students"
+      }
+    },
+	{
+      "name": "No Major",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw":"{\n\"name\":\"Edward Elric\",\n\"gpa\":4.0\n}"
+        },
+        "url": "{{base_url}}/api/students"
+      }
+    },
+    {
+      "name": "Blank Major",
+      "request": {
+        "method": "POST",
+        "header": [{"key":"Content-Type","value":"application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw":"{\n\"name\":\"Edward Elric\",\n\"major\":\"\",\n\"gpa\":4.0\n}"
+        },
+        "url": "{{base_url}}/api/students"
+      }
+    },
+	{
+      "name": "Major Too Large",
+      "request": {
+        "method": "POST",
+        "header": [{"key":"Content-Type","value":"application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw":"{\n\"name\":\"Edward Elric\",\n\"major\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n\"gpa\":4.0\n}"
+		  },
+        "url": "{{base_url}}/api/students"
+      }
+    },
+    {
+      "name": "GPA Too Large",
+      "request": {
+        "method": "POST",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{
+          "mode":"raw",
+          "raw":"{\n\"name\":\"Edward Elric\",\n\"major\":\"Alchemy\",\n\"gpa\":5.0\n}"
+        },
+        "url":"{{base_url}}/api/students"
+      }
+    },
+	{
+      "name": "GPA Too Low",
+      "request": {
+        "method": "POST",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{
+          "mode":"raw",
+          "raw":"{\n\"name\":\"Edward Elric\",\n\"major\":\"Alchemy\",\n\"gpa\":-1.0\n}"
+        },
+        "url":"{{base_url}}/api/students"
+      }
+    },
+    {
+      "name": "Valid Student 1",
+      "request": {
+        "method":"POST",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{
+          "mode":"raw",
+          "raw":"{\n\"name\":\"Edward Elric\",\n\"major\":\"Alchemy\",\n\"gpa\":4.0\n}"
+        },
+        "url":"{{base_url}}/api/students"
+      }
+    },
+    {
+      "name": "Valid Student 2",
+      "request": {
+        "method":"POST",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{
+          "mode":"raw",
+          "raw":"{\n\"name\":\"Alphonse Elric\",\n\"major\":\"Alchemy\",\n\"gpa\":4.0\n}"
+        },
+        "url":"{{base_url}}/api/students"
+      }
+    },
+    {
+      "name": "Valid Student 3",
+      "request": {
+        "method":"POST",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{
+          "mode":"raw",
+          "raw":"{\n\"name\":\"Shou Tucker\",\n\"major\":\"Alchemy\",\n\"gpa\":4.0\n}"
+        },
+        "url":"{{base_url}}/api/students"
+      }
+    },
+	{
+      "name": "(DO NOT USE- PROGRAM DOES NOT ACCOUNT FOR THIS) Duplicate Student",
+      "request": {
+        "method":"POST",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body":{
+          "mode":"raw",
+          "raw":"{\n\"name\":\"Edward Elric\",\n\"major\":\"Alchemy\",\n\"gpa\":4.0\n}"
+        },
+        "url":"{{base_url}}/api/students"
+      }
+    }
+  ]
+}
