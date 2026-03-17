@@ -12,5 +12,6 @@ TO USE:
 - Open Postman.
 - Import the test collections.
 - Run them in order from top to bottom. If you read the test case document, you will note that the order is IMPERATIVE!
+- NOTE: There are some test cases that require two runs of the same test following some condition. Read the document!
 
 This suite should test all major functionality and constraints of the code. 
